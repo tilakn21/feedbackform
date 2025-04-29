@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import React, { Suspense } from "react";
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -27,6 +28,14 @@ try {
 }
 
 export default function FeedbackForm() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <FeedbackFormInner />
+    </Suspense>
+  );
+}
+
+function FeedbackFormInner() {
   const searchParams = useSearchParams();
   const [postId, setPostId] = useState("");
   const [deliveredCorrectly, setDeliveredCorrectly] = useState(false);
