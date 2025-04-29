@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: feedbackform
+    env: node
+    buildCommand: npm run build
+    startCommand: npm start
+    plan: free
+    envVars:
+      # Add your Firebase config here if you want to keep it private
+      # - key: NEXT_PUBLIC_FIREBASE_API_KEY
+      #   value: <your-api-key>
+      # - key: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+      #   value: <your-auth-domain>
+      # ...
+      # If you use the Admin SDK, add the service account JSON like this:
+      # - key: FIREBASE_SERVICE_ACCOUNT_JSON
+      #   value: '{"type":"service_account","project_id":"india-post-cfab4",...}'
+    rootDir: .
